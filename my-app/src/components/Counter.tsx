@@ -1,4 +1,7 @@
+import { useEffect, useState } from "react";
+
 const Counter = () => {
+  const [currentTime, setCurrentTime] = useState(new Date());
   const events = [
     {
       id: 1,
@@ -68,9 +71,19 @@ const Counter = () => {
     }
   }
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000); // Update every second
+
+    return () => {
+      clearInterval(timer); // Clean up the timer on component unmount
+    };
+  }, []); // Empty dependency array to run the effect only once on component mount
   return (
     <div className="border">
       <h1>Counter</h1>
+      Current Time: {currentTime.toLocaleTimeString()}
     </div>
   );
 };
