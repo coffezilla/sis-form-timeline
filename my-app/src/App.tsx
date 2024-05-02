@@ -8,12 +8,34 @@ function App() {
   // start:
   // end:
 
+  const events = [
+    {
+      id: 1,
+      name: "1a",
+    },
+    {
+      id: 2,
+      name: "2b",
+    },
+  ];
+
   return (
     <>
       <div>s</div>
-      <Counter />
+      <Counter match={"02/14/2024 20:00:00"} events={events} />
     </>
   );
 }
 
 export default App;
+
+/*
+
+tempo inicial = 12/12/12 00:00:00
+tempo em segundos = 
+
+atual: 00:00:20
+tempo: 00:00:30
+final: 00:01:00
+
+*/
