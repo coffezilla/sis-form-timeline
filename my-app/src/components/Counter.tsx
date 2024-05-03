@@ -13,7 +13,7 @@ const Counter = ({ events, start }: { events: any[]; startEvent: string }) => {
   const [finishTime, setFinishTime] = useState<any>(null);
   const [hasAllData, setHasAllData] = useState<boolean>(false);
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
-  const [isHappening, setIsHappening] = useState<boolean>(false); // if is happening is running
+  const [eventStatus, setEventStatus] = useState<string | null>(null);
 
   const runClock = () => {
     const timer = setInterval(() => {
@@ -23,27 +23,25 @@ const Counter = ({ events, start }: { events: any[]; startEvent: string }) => {
       );
       setCurrentTime(currentTimeFormatDB);
 
-      const statusEvent = checkEventStatus(
+      const _status = checkEventStatus(
         new Date(),
         new Date(start),
         new Date(finishTime)
       );
+      setEventStatus(_status);
 
-      if (statusEvent === "HAPPENING") {
+      if (_status === "HAPPENING") {
         console.log("happening");
-        setIsHappening(true);
 
         const diff = getSecondsDifference(new Date(), new Date(start));
         setTimelineCurrentIndex(diff + 1);
       }
-      if (statusEvent === "NOT_HAPPENING") {
-        console.log("not happening", statusEvent);
+      if (_status === "WAITING") {
+        console.log("not happening", _status);
         setTimelineCurrentIndex(0);
-        setIsHappening(false);
       }
-      if (statusEvent === "DONE") {
-        console.log("done", statusEvent);
-        setIsHappening(false);
+      if (_status === "DONE") {
+        console.log("done", _status);
       }
       setIsLoaded(true);
     }, 1000);
@@ -61,15 +59,16 @@ const Counter = ({ events, start }: { events: any[]; startEvent: string }) => {
       );
       setCurrentTime(currentTimeFormatDB);
 
-      const statusEvent = checkEventStatus(
+      const _status = checkEventStatus(
         new Date(),
         new Date(start),
         new Date(finishTime)
       );
 
-      if (statusEvent === "DONE") {
-        console.log("done", statusEvent);
-        setIsHappening(false);
+      setEventStatus(_status);
+
+      if (_status === "DONE") {
+        console.log("done", _status);
         setTimelineCurrentIndex(TIMELINE_TOTAL);
         setIsLoaded(true);
       } else {
@@ -84,7 +83,7 @@ const Counter = ({ events, start }: { events: any[]; startEvent: string }) => {
     const startTimeFormatDate = new Date(start);
     const finishTimeFormatDate = new Date(finished);
 
-    let status = "NOT_HAPPENING";
+    let status = "WAITING";
 
     if (
       currentTimeFormatDate > startTimeFormatDate &&
@@ -110,17 +109,21 @@ const Counter = ({ events, start }: { events: any[]; startEvent: string }) => {
 
   return (
     <div className="border">
-      <h1>Counter</h1>
+      <h1>BP Seguradora TIMER DE EVENTO de cadastro</h1>
       {isLoaded && (
         <>
           <p>Current time: {currentTime}</p>
           <p>Start BP event: {start}</p>
           <p>End BP event: {finishTime}</p>
-          <p>Status: {isHappening.toString()}</p>
+          <p>Status: {eventStatus}</p>
           <p>loaded: {isLoaded.toString()}</p>
           <p>
             {timelineCurrentIndex}/{TIMELINE_TOTAL}
           </p>
+
+          {eventStatus === "DONE" && <div>DONE</div>}
+          {eventStatus === "HAPPENING" && <div>HAPPENING</div>}
+          {eventStatus === "WAITING" && <div>WAITING</div>}
         </>
       )}
       {/* Current Time: {currentTime.toLocaleTimeString()} */}
