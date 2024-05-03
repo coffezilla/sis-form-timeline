@@ -190,13 +190,14 @@ function App() {
     },
   ];
 
-  const startEvent = "2024-05-03 11:55:30";
+  const startEvent = "2024-05-03 13:13:00";
+  // const startEvent2 = "2024-05-03 13:13:40";
 
   return (
     <>
-      <div>s</div>
       <div className="flex">
         <Counter events={events} start={startEvent} />
+        {/* <Counter events={events} start={startEvent2} /> */}
         {/* <Counter events={events2} start={startEvent} /> */}
         {/* <Counter events={events3} start={startEvent} /> */}
       </div>
