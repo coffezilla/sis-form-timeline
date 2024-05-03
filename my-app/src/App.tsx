@@ -18,7 +18,7 @@ function App() {
     },
   ];
 
-  const startEvent = "2024-05-03 10:12:45";
+  const startEvent = "2024-05-03 10:44:10";
 
   return (
     <>

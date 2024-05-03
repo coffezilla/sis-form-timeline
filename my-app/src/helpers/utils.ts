@@ -47,6 +47,12 @@ export const addSeconds = (timestamp: string, seconds: number) => {
   return result;
 };
 
+export const getSecondsDifference = (date1, date2) => {
+  const difference = Math.abs(date1 - date2);
+  const seconds = Math.floor(difference / 1000);
+  return seconds;
+};
+
 // const timestamp = 1620036000000; // Example timestamp (May 3, 2021 12:00:00 AM UTC)
 
 // const formattedDate1 = formatTimestamp(timestamp, 'DD/MM/YYYY HH:II:SS');
