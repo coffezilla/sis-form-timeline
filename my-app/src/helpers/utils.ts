@@ -53,6 +53,28 @@ export const getSecondsDifference = (date1, date2) => {
   return seconds;
 };
 
+//
+export const checkEventStatus = (current: any, start: any, finished: any) => {
+  const currentTimeFormatDate = current;
+  const startTimeFormatDate = new Date(start);
+  const finishTimeFormatDate = new Date(finished);
+
+  let status = "WAITING";
+
+  if (
+    currentTimeFormatDate > startTimeFormatDate &&
+    currentTimeFormatDate < finishTimeFormatDate
+  ) {
+    status = "HAPPENING";
+  }
+
+  if (currentTimeFormatDate > finishTimeFormatDate) {
+    status = "DONE";
+  }
+
+  return status;
+};
+
 // const timestamp = 1620036000000; // Example timestamp (May 3, 2021 12:00:00 AM UTC)
 
 // const formattedDate1 = formatTimestamp(timestamp, 'DD/MM/YYYY HH:II:SS');
