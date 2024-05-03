@@ -16,6 +16,11 @@ const useEvent = (events: any, start: string) => {
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
   const [eventStatus, setEventStatus] = useState<string | null>(null);
 
+  //   result power bi bp analysis
+  const [signupsA, setSignupsA] = useState<number>(0);
+  const [signupsB, setSignupsB] = useState<number>(0);
+
+  //
   const runClock = () => {
     const timer = setInterval(() => {
       //### DEBUG: Timer real time
@@ -35,10 +40,12 @@ const useEvent = (events: any, start: string) => {
 
       if (_status === "HAPPENING") {
         const diff = getSecondsDifference(new Date(), new Date(start));
+        updateSignupCounter(diff + 1);
         setTimelineCurrentIndex(diff + 1);
       }
       if (_status === "WAITING") {
         setTimelineCurrentIndex(0);
+        updateSignupCounter(0);
       }
 
       setIsLoaded(true);
@@ -49,6 +56,21 @@ const useEvent = (events: any, start: string) => {
     };
   };
 
+  //
+  const updateSignupCounter = (currentIndex: number) => {
+    let _counterA = 0;
+    let _counterB = 0;
+    for (let i = 0; i < currentIndex; i++) {
+      if (events[i].type === "signup" && events[i].landingpage === "bpweek")
+        _counterA += 1;
+      if (events[i].type === "signup" && events[i].landingpage === "gustavoapp")
+        _counterB += 1;
+    }
+    setSignupsA(_counterA);
+    setSignupsB(_counterB);
+  };
+
+  //
   useEffect(() => {
     if (hasAllData) {
       //### DEBUG: Timer real time
@@ -69,6 +91,7 @@ const useEvent = (events: any, start: string) => {
 
       if (_status === "DONE") {
         setTimelineCurrentIndex(TIMELINE_TOTAL);
+        updateSignupCounter(TIMELINE_TOTAL);
         setIsLoaded(true);
       } else {
         runClock();
@@ -77,6 +100,7 @@ const useEvent = (events: any, start: string) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hasAllData]);
 
+  //
   useEffect(() => {
     const endTime = addSeconds(start, TIMELINE_TOTAL);
     const endTimeFormatDB = formatTimestamp(endTime, "YYYY-MM-DD HH:II:SS");
@@ -92,6 +116,8 @@ const useEvent = (events: any, start: string) => {
     eventStatus,
     timelineCurrentIndex,
     TIMELINE_TOTAL,
+    signupsA,
+    signupsB,
   };
 };
 
