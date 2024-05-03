@@ -64,8 +64,6 @@ function App() {
       landingpage: "gustavoapp",
       type: "signup",
     },
-  ];
-  const events2 = [
     {
       id: 1,
       name: "a",
@@ -76,13 +74,13 @@ function App() {
       id: 2,
       name: "b",
       landingpage: "bpweek",
-      type: "signup",
+      type: "none",
     },
     {
       id: 3,
       name: "c",
       landingpage: "bpweek",
-      type: "signup",
+      type: "none",
     },
     {
       id: 4,
@@ -111,14 +109,14 @@ function App() {
     {
       id: 8,
       name: "h",
-      landingpage: "gustavoapp",
-      type: "signup",
+      landingpage: "bpweek",
+      type: "none",
     },
     {
       id: 9,
       name: "i",
-      landingpage: "gustavoapp",
-      type: "signup",
+      landingpage: "bpweek",
+      type: "none",
     },
     {
       id: 10,
@@ -126,8 +124,6 @@ function App() {
       landingpage: "gustavoapp",
       type: "signup",
     },
-  ];
-  const events3 = [
     {
       id: 1,
       name: "a",
@@ -144,7 +140,7 @@ function App() {
       id: 3,
       name: "c",
       landingpage: "bpweek",
-      type: "signup",
+      type: "none",
     },
     {
       id: 4,
@@ -156,13 +152,13 @@ function App() {
       id: 5,
       name: "e",
       landingpage: "gustavoapp",
-      type: "none",
+      type: "signup",
     },
     {
       id: 6,
       name: "f",
-      landingpage: "gustavoapp",
-      type: "signup",
+      landingpage: "bpweek",
+      type: "none",
     },
     {
       id: 7,
@@ -173,7 +169,7 @@ function App() {
     {
       id: 8,
       name: "h",
-      landingpage: "gustavoapp",
+      landingpage: "bpweek",
       type: "none",
     },
     {
@@ -185,12 +181,12 @@ function App() {
     {
       id: 10,
       name: "j",
-      landingpage: "bpweek",
+      landingpage: "gustavoapp",
       type: "signup",
     },
   ];
 
-  const startEvent = "2024-05-03 13:13:00";
+  const startEvent = "2024-05-03 19:49:10";
   // const startEvent2 = "2024-05-03 13:13:40";
 
   return (

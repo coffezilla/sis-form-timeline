@@ -29,6 +29,7 @@ const Counter = ({ events, start }: IProps) => {
       </h1>
       {isLoaded && (
         <>
+          <div></div>
           <p>Current time: {currentTime}</p>
           <p>Start BP event: {start}</p>
           <p>End BP event: {finishTime}</p>
@@ -43,13 +44,21 @@ const Counter = ({ events, start }: IProps) => {
           <p>
             {timelineCurrentIndex}/{TIMELINE_TOTAL}
           </p>
-          <ul>
+          <ul className="flex bg-gray-100">
             {events.map((event, i) => {
               return (
                 timelineCurrentIndex > i && (
-                  <li className={`border text-sm `} key={event.id}>
-                    {event.id}: {i} {event.name} - {event.type} (
-                    {event.landingpage})
+                  <li
+                    className={`border text-sm w-[3.33%] h-5 bg-green-200 relative`}
+                    key={event.id}
+                  >
+                    {event.type === "signup" && (
+                      <span className="bg-red-200 absolute -top-5 left-0 w-full block h-5 text-center">
+                        x
+                      </span>
+                    )}
+
+                    {/* {event.id} */}
                   </li>
                 )
               );

@@ -7,7 +7,7 @@ import {
 } from "../helpers/utils";
 
 const useEvent = (events: any, start: string) => {
-  const TIMELINE_TOTAL = 10;
+  const TIMELINE_TOTAL = 30;
   const [timelineCurrentIndex, setTimelineCurrentIndex] =
     useState<number>(null);
   const [currentTime, setCurrentTime] = useState<any>(null);
