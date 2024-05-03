@@ -42,9 +42,9 @@ const Counter = ({ events, start }: { events: any[]; startEvent: string }) => {
             })}
           </ul>
 
-          {/* {eventStatus === "DONE" && <div>DONE</div>}
+          {eventStatus === "DONE" && <div>DONE</div>}
           {eventStatus === "HAPPENING" && <div>HAPPENING</div>}
-          {eventStatus === "WAITING" && <div>WAITING</div>} */}
+          {eventStatus === "WAITING" && <div>WAITING</div>}
         </>
       )}
     </div>
