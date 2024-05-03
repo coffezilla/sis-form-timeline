@@ -14,7 +14,7 @@ function App() {
       id: 2,
       name: "b",
       landingpage: "bpweek",
-      type: "none",
+      type: "attack",
     },
     {
       id: 3,
@@ -26,7 +26,7 @@ function App() {
       id: 4,
       name: "d",
       landingpage: "bpweek",
-      type: "none",
+      type: "attack",
     },
     {
       id: 5,
@@ -38,7 +38,7 @@ function App() {
       id: 6,
       name: "f",
       landingpage: "bpweek",
-      type: "none",
+      type: "attack",
     },
     {
       id: 7,
@@ -56,7 +56,7 @@ function App() {
       id: 9,
       name: "i",
       landingpage: "bpweek",
-      type: "none",
+      type: "attack",
     },
     {
       id: 10,
@@ -97,8 +97,8 @@ function App() {
     {
       id: 6,
       name: "f",
-      landingpage: "bpweek",
-      type: "none",
+      landingpage: "gustavoapp",
+      type: "attack",
     },
     {
       id: 7,
@@ -110,19 +110,19 @@ function App() {
       id: 8,
       name: "h",
       landingpage: "bpweek",
-      type: "none",
+      type: "attack",
     },
     {
       id: 9,
       name: "i",
       landingpage: "bpweek",
-      type: "none",
+      type: "attack",
     },
     {
       id: 10,
       name: "j",
       landingpage: "gustavoapp",
-      type: "signup",
+      type: "attack",
     },
     {
       id: 1,
@@ -186,7 +186,7 @@ function App() {
     },
   ];
 
-  const startEvent = "2024-05-03 19:49:10";
+  const startEvent = "2024-05-03 19:54:59";
   // const startEvent2 = "2024-05-03 13:13:40";
 
   return (

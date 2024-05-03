@@ -54,7 +54,13 @@ const Counter = ({ events, start }: IProps) => {
                   >
                     {event.type === "signup" && (
                       <span className="bg-red-200 absolute -top-5 left-0 w-full block h-5 text-center">
-                        x
+                        {event.landingpage === "bpweek" ? "1" : "2"}
+                      </span>
+                    )}
+
+                    {event.type !== "none" && (
+                      <span className="bg-red-200 absolute -top-0 left-0 w-full block h-5 text-center">
+                        {event.landingpage === "bpweek" ? "x1" : "x2"}
                       </span>
                     )}
 
