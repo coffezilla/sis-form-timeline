@@ -19,11 +19,11 @@ const useEvent = (events: any, start: string) => {
   const runClock = () => {
     const timer = setInterval(() => {
       //### DEBUG: Timer real time
-      //   const currentTimeFormatDB = formatTimestamp(
-      //     new Date(),
-      //     "YYYY-MM-DD HH:II:SS"
-      //   );
-      //   setCurrentTime(currentTimeFormatDB);
+      const currentTimeFormatDB = formatTimestamp(
+        new Date(),
+        "YYYY-MM-DD HH:II:SS"
+      );
+      setCurrentTime(currentTimeFormatDB);
       //###
 
       const _status = checkEventStatus(
@@ -52,11 +52,11 @@ const useEvent = (events: any, start: string) => {
   useEffect(() => {
     if (hasAllData) {
       //### DEBUG: Timer real time
-      //   const currentTimeFormatDB = formatTimestamp(
-      //     new Date(),
-      //     "YYYY-MM-DD HH:II:SS"
-      //   );
-      //   setCurrentTime(currentTimeFormatDB);
+      const currentTimeFormatDB = formatTimestamp(
+        new Date(),
+        "YYYY-MM-DD HH:II:SS"
+      );
+      setCurrentTime(currentTimeFormatDB);
       //###
 
       const _status = checkEventStatus(

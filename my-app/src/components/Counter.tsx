@@ -1,9 +1,3 @@
-import { useEffect, useState } from "react";
-import {
-  addSeconds,
-  formatTimestamp,
-  getSecondsDifference,
-} from "../helpers/utils";
 import useEvent from "../hooks/useEvent";
 
 const Counter = ({ events, start }: { events: any[]; startEvent: string }) => {
@@ -29,13 +23,23 @@ const Counter = ({ events, start }: { events: any[]; startEvent: string }) => {
           <p>
             {timelineCurrentIndex}/{TIMELINE_TOTAL}
           </p>
+          <ul>
+            {events.map((event, i) => {
+              return (
+                timelineCurrentIndex > i && (
+                  <li className={`border text-sm `} key={event.id}>
+                    {event.id}: {i} {event.name}
+                  </li>
+                )
+              );
+            })}
+          </ul>
 
-          {eventStatus === "DONE" && <div>DONE</div>}
+          {/* {eventStatus === "DONE" && <div>DONE</div>}
           {eventStatus === "HAPPENING" && <div>HAPPENING</div>}
-          {eventStatus === "WAITING" && <div>WAITING</div>}
+          {eventStatus === "WAITING" && <div>WAITING</div>} */}
         </>
       )}
-      {/* Current Time: {currentTime.toLocaleTimeString()} */}
     </div>
   );
 };
