@@ -2,16 +2,28 @@ import { useState } from "react";
 import Counter from "./components/Counter";
 
 function App() {
-  // live bp seguradora sign up
-  // 1,2,3,4,5,6,7,8,9
+  // event bp lead capture
+  const events = [
+    {
+      id: 1,
+      name: "a",
+    },
+    {
+      id: 2,
+      name: "b",
+    },
+    {
+      id: 3,
+      name: "c",
+    },
+  ];
 
-  // start:
-  // end:
+  const startEvent = "2024-05-03 10:12:45";
 
   return (
     <>
       <div>s</div>
-      <Counter />
+      <Counter events={events} start={startEvent} />
     </>
   );
 }
