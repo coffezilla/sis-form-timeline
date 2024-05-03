@@ -1,20 +1,32 @@
 import useEvent from "../hooks/useEvent";
 
-const Counter = ({ events, start }: { events: any[]; startEvent: string }) => {
+interface IProps {
+  events: {
+    id: number;
+    name: string;
+    landingpage: string;
+    type: string;
+  }[];
+  start: string;
+}
+
+const Counter = ({ events, start }: IProps) => {
   const {
+    TIMELINE_TOTAL,
     isLoaded,
     currentTime,
     finishTime,
     timelineCurrentIndex,
     eventStatus,
-    TIMELINE_TOTAL,
     signupsA,
     signupsB,
   } = useEvent(events, start);
 
   return (
     <div className="border">
-      <h1>BP Seguradora TIMER DE EVENTO de cadastro</h1>
+      <h1 className="font-bold text-lg">
+        BP Seguradora TIMER DE EVENTO de cadastro
+      </h1>
       {isLoaded && (
         <>
           <p>Current time: {currentTime}</p>
@@ -22,7 +34,9 @@ const Counter = ({ events, start }: { events: any[]; startEvent: string }) => {
           <p>End BP event: {finishTime}</p>
           <p>Status: {eventStatus}</p>
           <hr />
-          <h1>BP Week: Cadastro por campanha Landing page</h1>
+          <h2 className="font-bold text-md">
+            BP Week: Cadastro por campanha Landing page
+          </h2>
           <p>Cadastro Landing Page BP Week (a): {signupsA}</p>
           <p>Cadastro Landing Page Gusttavo lima APP (b): {signupsB}</p>
           <p>loaded: {isLoaded.toString()}</p>

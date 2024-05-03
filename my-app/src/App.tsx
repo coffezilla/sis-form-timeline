@@ -197,8 +197,8 @@ function App() {
       <div>s</div>
       <div className="flex">
         <Counter events={events} start={startEvent} />
-        <Counter events={events2} start={startEvent} />
-        <Counter events={events3} start={startEvent} />
+        {/* <Counter events={events2} start={startEvent} /> */}
+        {/* <Counter events={events3} start={startEvent} /> */}
       </div>
       {/* <Counter events={events} start={startEvent} /> */}
     </>
